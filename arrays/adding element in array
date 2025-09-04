@@ -1,0 +1,55 @@
+import java.util.*;
+
+public class Main
+{
+    public static int[] insertatbegin(int arr[],int value)
+    {
+        int n=arr.length;
+        int[] newarr=new int[n+1];
+        for(int i=n-1;i>=0;i--)
+        {
+            newarr[i+1]=arr[i];
+        }
+        newarr[0]=value;
+        return newarr;
+    }
+    public static int[] insertatend(int arr[],int end)
+    {
+        int n=arr.length;
+        int[] endarr=new int[n+1];
+        for(int i=0;i<n;i++)
+        {
+            endarr[i]=arr[i];
+        }
+        endarr[n]=end;
+        return endarr;
+    }
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        System.out.println("before inserting");
+        for(int i=0;i<n;i++)
+        {
+          arr[i]=sc.nextInt();
+        }
+        int value=sc.nextInt();
+        
+        int[] result=insertatbegin(arr,value);
+        System.out.println("after inserting at begin");
+        for(int i=0;i<result.length;i++)
+        {
+            System.out.print(result[i]+" ");
+        }
+        System.out.println();
+        System.out.println("enter the number to fix at end");
+        int end=sc.nextInt();
+        int resultend[]=insertatend(arr,end);
+        for(int i=0;i<resultend.length;i++)
+        {
+            System.out.print(resultend[i]+" ");
+        }
+        
+	}
+}
